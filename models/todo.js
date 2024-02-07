@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 
 const Todo = mongoose.model('ToDo', {
-    tarefa: String,
+    name: String,
     desc: String,
-    categoria: String,
+    category: String,
     // situacao: {
     //     type: Boolean,
     //     default: false
     // }
-    situacao: String
+    situation: String
    
 })
 
