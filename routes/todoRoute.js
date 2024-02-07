@@ -12,24 +12,24 @@ app.use(bodyParser.json())
 // Create - criação de dados
 
 router.post('/', async (req, res) => {
-    const{ tarefa, desc, categoria, situacao} = req.body
+    const{ name, desc, category, situation} = req.body
 
-    if(!tarefa){
+    if(!name){
         res.status(422).json({error: 'O titulo da tarefa é obrigatório!'})
         return
     }
-    if(situacao !== "false" && situacao !== "true"){
+    if(situation !== "false" && situation !== "true"){
         res.status(422).json({error: 'Situação invalida'})
         return
     }
 
 
     const todoData = {
-        tarefa, 
+        name, 
         desc, 
-        categoria, 
-        // situacao: situacao || false
-        situacao
+        category, 
+        // situation: situation || false
+        situation
        
     }
 
@@ -89,21 +89,21 @@ router.patch('/:id', async(req, res) =>{
     const id = req.params.id
 
     // o corpo vai vir com os dados que precisam ser atualizados
-    const{ tarefa, desc, categoria, situacao } = req.body
+    const{ name, desc, category, situation } = req.body
    // const{ tarefa, body, comments, date } = req.body
 
-   if(situacao != "false" || situacao != "true"){
+   if(situation != "false" || situation != "true"){
     res.status(422).json({error: 'Situação invalida'})
     return
 }
 
 
 const todoData = {
-    tarefa, 
+    name, 
     desc, 
-    categoria, 
-    // situacao: situacao || false
-    situacao
+    category, 
+    // situation: situation || false
+    situation
    
 }
 
